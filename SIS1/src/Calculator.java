@@ -6,7 +6,7 @@ import java.awt.event.*;
 public class Calculator implements ActionListener{
 	
 	JFrame frame;
-	JTextField textField;
+	JTextField textfield;
 	JButton[] numberButtons = new JButton[10];
 	JButton[] functionButtons = new JButton[8];
 	JButton addButton, suButton, mulButton, divButton;
@@ -15,7 +15,7 @@ public class Calculator implements ActionListener{
 	
 	
 	
-	Font myFont = new Font("Montserrat", Font.BOLD, 30);
+	Font myFont = new Font("Ink Free", Font.BOLD, 30);
 	
 	double num1 = 0, num2 = 0, result = 0;
 	char operator;
@@ -25,6 +25,14 @@ public class Calculator implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(420, 550);
 		frame.setLayout(null);
+		
+		textfield = new JTextField();
+		textfield.setBounds(50, 25, 300, 50);
+		textfield.setFont(myFont);
+		textfield.setEditable(false);
+		
+		frame.add(textfield);
+		
 		
 		
 		frame.setVisible(true);
