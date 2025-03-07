@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.InputStream;
 
 
 public class Calculator implements ActionListener{
@@ -16,17 +17,18 @@ public class Calculator implements ActionListener{
 	
 	
 	
-	Font myFont = new Font("Arial", Font.BOLD, 30);
+	Font myFont = new Font("Montserrat", Font.BOLD, 30);
 	
 	double num1 = 0, num2 = 0, result = 0;
 	char operator;
 	
 	Calculator(){
+		
 		frame = new JFrame("Calculator");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(420, 550);
 		frame.setLayout(null);
-		frame.getContentPane().setBackground(Color.DARK_GRAY);
+		frame.getContentPane().setBackground(new Color(48, 48, 48));
 		
 		textfield = new JTextField();
 		textfield.setBounds(50, 25, 300, 50);
@@ -63,8 +65,10 @@ public class Calculator implements ActionListener{
 		for(int i = 0; i < 9; i++) {
 			functionButtons[i].addActionListener(this);
 			functionButtons[i].setFont(myFont);
+			functionButtons[i].setBackground(new Color(48, 48, 48));
 			functionButtons[i].setFocusable(false);
-			functionButtons[i].setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+			functionButtons[i].setForeground(new Color(255, 128, 0));
+			functionButtons[i].setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 		}
 		
 		for(int i = 0; i < 10; i++) {
@@ -80,8 +84,8 @@ public class Calculator implements ActionListener{
 		
 		panel = new JPanel();
 		panel.setBounds(50, 100, 300, 300);
-		panel.setLayout(new GridLayout(4, 4, 10, 10));
-//		panel.setBackground(Color.GRAY);
+		panel.setLayout(new GridLayout(4, 4, 5, 5));
+		panel.setBackground(new Color(48, 48, 48));
 		
 		panel.add(numberButtons[1]);
 		panel.add(numberButtons[2]);
@@ -116,6 +120,14 @@ public class Calculator implements ActionListener{
 
 	public static void main(String[] args) {
 		Calculator calculator = new Calculator();
+		
+		
+//		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+//		String[] fonts = ge.getAvailableFontFamilyNames();
+//
+//		for (String font : fonts) {
+//		    System.out.println(font);
+//		}
 
 	}
 
@@ -138,16 +150,19 @@ public class Calculator implements ActionListener{
 		if(e.getSource() == subButton) {
 			num1 = Double.parseDouble(textfield.getText());
 			operator = '-';
+			expressionLabel.setText(num1 + " " + operator);
 			textfield.setText("");
 		}
 		if(e.getSource() == mulButton) {
 			num1 = Double.parseDouble(textfield.getText());
 			operator = '*';
+			expressionLabel.setText(num1 + " " + operator);
 			textfield.setText("");
 		}
 		if(e.getSource() == divButton) {
 			num1 = Double.parseDouble(textfield.getText());
 			operator = '/';
+			expressionLabel.setText(num1 + " " + operator);
 			textfield.setText("");
 		}
 		if(e.getSource() == equButton) {
