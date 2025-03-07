@@ -16,30 +16,39 @@ public class Calculator implements ActionListener{
 	JLabel expressionLabel;
 	
 	
-	
+	Color bgColor = new Color(48, 48, 48);
 	Font myFont = new Font("Montserrat", Font.BOLD, 30);
+	Font myBigFont = new Font("Montserrat", Font.BOLD, 50);
 	
 	double num1 = 0, num2 = 0, result = 0;
 	char operator;
 	
 	Calculator(){
 		
+		
+		
 		frame = new JFrame("Calculator");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(420, 550);
+		frame.setSize(420, 580);
 		frame.setLayout(null);
-		frame.getContentPane().setBackground(new Color(48, 48, 48));
+		frame.getContentPane().setBackground(bgColor);
 		
 		textfield = new JTextField();
-		textfield.setBounds(50, 25, 300, 50);
-		textfield.setFont(myFont);
+		textfield.setBounds(55, 85, 300, 50);
+		textfield.setFont(myBigFont);
 		textfield.setEditable(false);
+		textfield.setBackground(bgColor);
+		textfield.setForeground(Color.WHITE);
+		textfield.setBorder(BorderFactory.createEmptyBorder());
 		
 		expressionLabel = new JLabel();
-		expressionLabel.setBounds(50, 5, 300, 20);
+		expressionLabel.setBounds(55, 25, 300, 60);
 		expressionLabel.setFont(myFont);
 		expressionLabel.setForeground(Color.WHITE);
-		expressionLabel.setText("jejjeje");
+		expressionLabel.setText("Calculator");
+		
+		ImageIcon icon = new ImageIcon("src/img/delete.png");
+		Image img = icon.getImage().getScaledInstance(36,  36, Image.SCALE_SMOOTH);
 		
 		addButton = new JButton("+");
 		subButton = new JButton("-");
@@ -48,8 +57,11 @@ public class Calculator implements ActionListener{
 		decButton = new JButton(".");
 		equButton = new JButton("=");
 		delButton = new JButton("Delete");
-		clrButton = new JButton("Clear");
+		clrButton = new JButton("C");
 		negButton = new JButton("(-)");
+		
+		delButton.setIcon(new ImageIcon(img));
+		delButton.setText("");
 		
 		functionButtons[0] = addButton;
 		functionButtons[1] = subButton;
@@ -65,10 +77,11 @@ public class Calculator implements ActionListener{
 		for(int i = 0; i < 9; i++) {
 			functionButtons[i].addActionListener(this);
 			functionButtons[i].setFont(myFont);
-			functionButtons[i].setBackground(new Color(48, 48, 48));
+			functionButtons[i].setBackground(bgColor);
 			functionButtons[i].setFocusable(false);
 			functionButtons[i].setForeground(new Color(255, 128, 0));
-			functionButtons[i].setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+//			functionButtons[i].setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+			functionButtons[i].setBorder(BorderFactory.createEmptyBorder());
 		}
 		
 		for(int i = 0; i < 10; i++) {
@@ -76,16 +89,19 @@ public class Calculator implements ActionListener{
 			numberButtons[i].addActionListener(this);
 			numberButtons[i].setFont(myFont);
 			numberButtons[i].setFocusable(false);
+			numberButtons[i].setForeground(Color.WHITE);
+			numberButtons[i].setBackground(bgColor);
+			numberButtons[i].setBorder(BorderFactory.createEmptyBorder());
 		}
 		
-		negButton.setBounds(50, 430, 100, 50);
-		delButton.setBounds(150, 430, 100, 50);
-		clrButton.setBounds(250, 430, 100, 50);
+		negButton.setBounds(50, 460, 100, 50);
+		delButton.setBounds(150, 460, 100, 50);
+		clrButton.setBounds(250, 460, 100, 50);
 		
 		panel = new JPanel();
-		panel.setBounds(50, 100, 300, 300);
+		panel.setBounds(50, 150, 300, 300);
 		panel.setLayout(new GridLayout(4, 4, 5, 5));
-		panel.setBackground(new Color(48, 48, 48));
+		panel.setBackground(bgColor);
 		
 		panel.add(numberButtons[1]);
 		panel.add(numberButtons[2]);
@@ -182,7 +198,7 @@ public class Calculator implements ActionListener{
 				break;
 			}
 			textfield.setText(String.valueOf(result));
-			expressionLabel.setText(num1 + " " + operator + " " + num2 + "=");
+			expressionLabel.setText(num1 + " " + operator + " " + num2 + " = ");
 			num1 = result;
 			
 		}
