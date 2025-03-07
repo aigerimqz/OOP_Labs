@@ -12,10 +12,11 @@ public class Calculator implements ActionListener{
 	JButton addButton, subButton, mulButton, divButton;
 	JButton decButton, equButton, delButton, clrButton, negButton;
 	JPanel panel;
+	JLabel expressionLabel;
 	
 	
 	
-	Font myFont = new Font("Ink Free", Font.BOLD, 30);
+	Font myFont = new Font("Arial", Font.BOLD, 30);
 	
 	double num1 = 0, num2 = 0, result = 0;
 	char operator;
@@ -25,11 +26,18 @@ public class Calculator implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(420, 550);
 		frame.setLayout(null);
+		frame.getContentPane().setBackground(Color.DARK_GRAY);
 		
 		textfield = new JTextField();
 		textfield.setBounds(50, 25, 300, 50);
 		textfield.setFont(myFont);
 		textfield.setEditable(false);
+		
+		expressionLabel = new JLabel();
+		expressionLabel.setBounds(50, 5, 300, 20);
+		expressionLabel.setFont(myFont);
+		expressionLabel.setForeground(Color.WHITE);
+		expressionLabel.setText("jejjeje");
 		
 		addButton = new JButton("+");
 		subButton = new JButton("-");
@@ -56,6 +64,7 @@ public class Calculator implements ActionListener{
 			functionButtons[i].addActionListener(this);
 			functionButtons[i].setFont(myFont);
 			functionButtons[i].setFocusable(false);
+			functionButtons[i].setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 		}
 		
 		for(int i = 0; i < 10; i++) {
@@ -97,6 +106,7 @@ public class Calculator implements ActionListener{
 		frame.add(delButton);
 		frame.add(clrButton);
 		frame.add(textfield);
+		frame.add(expressionLabel);
 		
 		
 		frame.setVisible(true);
@@ -122,6 +132,7 @@ public class Calculator implements ActionListener{
 		if(e.getSource() == addButton) {
 			num1 = Double.parseDouble(textfield.getText());
 			operator = '+';
+			expressionLabel.setText(num1 + " " + operator);
 			textfield.setText("");
 		}
 		if(e.getSource() == subButton) {
@@ -156,11 +167,13 @@ public class Calculator implements ActionListener{
 				break;
 			}
 			textfield.setText(String.valueOf(result));
+			expressionLabel.setText(num1 + " " + operator + " " + num2 + "=");
 			num1 = result;
 			
 		}
 		if(e.getSource() == clrButton) {
 			textfield.setText("");
+			expressionLabel.setText("");
 		}
 		if(e.getSource() == delButton) {
 			String string = textfield.getText();
