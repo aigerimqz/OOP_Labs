@@ -1,14 +1,17 @@
 package com.example;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class TimeDepositAccount extends Account {
     
     private final Date maturityDate;
     
-    public TimeDepositAccount(double balance, Date maturityDate) {
+    public TimeDepositAccount(double balance, DepositLength duration) {
         super(balance);
-        this.maturityDate = maturityDate;
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DAY_OF_YEAR, duration.getDays());
+        this.maturityDate = cal.getTime();
     }
 
     @Override

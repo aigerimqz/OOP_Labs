@@ -1,8 +1,7 @@
 package com.example;
 
 public class Customer {
-
-    private String firstName;
+	private String firstName;
     private String lastName;
     private Account[] accounts;
     private int numberOfAccounts;
@@ -35,4 +34,5 @@ public class Customer {
     public Account getAccount(int account_index) {
         return accounts[account_index];
     }
+
 }

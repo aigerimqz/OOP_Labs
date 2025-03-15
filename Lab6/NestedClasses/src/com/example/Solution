@@ -1,0 +1,58 @@
+Solution:
+
+All classes:
+1) OuterClass
+2) InnerClass
+3) StaticNestedClass
+4) A
+5) A.B inside the A class
+6) LocalClass
+7) Runnable in method2() - although it is interface, it is class, 
+because we are implementing interface using anonymous class
+8) Runnable in field <r>
+9) Object anonymous class
+10) C in B.method()
+
+
+Top Level classes:
+1) OuterClass
+
+Nested classes:
+1) InnerClass
+2) StaticNestedClass
+3) A
+4) A.B
+5) LocalClass
+6) C
+7) Runnable
+8) Runnable
+9) Object
+
+Inner classes:
+1) InnerClass
+2) A
+3) A.B
+4) LocalClass
+5) C
+6) Runnable
+7) Runnable
+8) Object
+
+Member classes:
+1) InnerClass
+2) StaticNestedClass
+3) A
+
+Local classes:
+1) LocalClass
+2) C
+
+Anonymous classes:
+1) Runnable in method2
+2) Runnable in r
+3) Object in o
+
+Static Nested classes:
+1) StaticNestedClass
+
+

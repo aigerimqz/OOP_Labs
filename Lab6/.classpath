@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="AbstractBanking/src"/>
-	<classpathentry kind="src" path="EnumBanking/src"/>
-	<classpathentry kind="src" path="NestedClasses/src"/>
-	<classpathentry kind="src" path="SingletonBanking/src"/>
-	<classpathentry kind="output" path="AbstractBanking/build/classes"/>
-</classpath>

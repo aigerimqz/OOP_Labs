@@ -1,8 +1,7 @@
 package com.example;
 
 public class CustomerReport {
-
-    private Bank bank;
+	private Bank bank;
 
     public Bank getBank() {
         return bank;
@@ -37,4 +36,5 @@ public class CustomerReport {
             }
         }
     }
+
 }

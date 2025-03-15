@@ -1,8 +1,7 @@
 package com.example;
 
 public class Bank {
-
-    private Customer[] customers;
+	private Customer[] customers;
     private int numberOfCustomers;
 
     public Bank() {
@@ -22,4 +21,5 @@ public class Bank {
     public Customer getCustomer(int customer_index) {
         return customers[customer_index];
     }
+
 }

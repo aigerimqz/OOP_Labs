@@ -5,13 +5,19 @@ import java.util.Calendar;
 public class SingletonBankingMain {
 
     public static void main(String[] args) {
-        Bank bank = new Bank();
-        initializeCustomers(bank);
+        Bank bank = Bank.getInstance();
+        Bank bank2 = Bank.getInstance();
+        initializeCustomers(bank2);
+        
+        if(bank == bank2) {
+        	System.out.println("bank and bank2 are the same object");
+        }
 
         // run the customer report
         CustomerReport report = new CustomerReport();
         report.setBank(bank);
         report.generateReport();
+        
     }
 
     private static void initializeCustomers(Bank bank) {

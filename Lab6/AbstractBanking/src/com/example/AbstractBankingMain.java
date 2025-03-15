@@ -1,10 +1,8 @@
 package com.example;
-
+import java.util.Date;
 import java.util.Calendar;
-
 public class AbstractBankingMain {
-
-    public static void main(String[] args) {
+	public static void main(String[] args) {
         Bank bank = new Bank();
         initializeCustomers(bank);
 
@@ -25,11 +23,11 @@ public class AbstractBankingMain {
         bank.addCustomer("Jane", "Simms");
         customer = bank.getCustomer(0);
         customer.addAccount(new TimeDepositAccount(500.00, cal.getTime()));
-        //customer.addAccount(new CheckingAccount(200.00, 400.00));
+        customer.addAccount(new CheckingAccount(200.00, 400.00));
 
         bank.addCustomer("Owen", "Bryant");
         customer = bank.getCustomer(1);
-        //customer.addAccount(new CheckingAccount(200.00));
+        customer.addAccount(new CheckingAccount(200.00));
 
         bank.addCustomer("Tim", "Soley");
         customer = bank.getCustomer(2);
@@ -40,7 +38,7 @@ public class AbstractBankingMain {
         bank.addCustomer("Maria", "Soley");
         customer = bank.getCustomer(3);
         // Maria and Tim have a shared checking account
-        //customer.addAccount(bank.getCustomer(2).getAccount(1));
+        customer.addAccount(bank.getCustomer(2).getAccount(1));
         customer.addAccount(new TimeDepositAccount(150.00, cal.getTime()));
     }
 }

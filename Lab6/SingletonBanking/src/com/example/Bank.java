@@ -4,8 +4,9 @@ public class Bank {
 
     private Customer[] customers;
     private int numberOfCustomers;
+    private static final Bank instance = new Bank();
 
-    public Bank() {
+    private Bank() {
         customers = new Customer[10];
         numberOfCustomers = 0;
     }
@@ -21,5 +22,9 @@ public class Bank {
 
     public Customer getCustomer(int customer_index) {
         return customers[customer_index];
+    }
+    
+    public static Bank getInstance() {
+    	return instance;
     }
 }
