@@ -28,6 +28,9 @@ import java.util.Vector;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.SystemColor;
+import javax.swing.UIManager;
+import java.awt.Color;
 
 public class RegJFrame extends JFrame {
 
@@ -65,40 +68,47 @@ public class RegJFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 910, 596);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.inactiveCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 10, 778, 81);
+		panel.setBackground(SystemColor.inactiveCaption);
+		panel.setBounds(10, 10, 876, 81);
 		contentPane.add(panel);
 		panel.setLayout(new BorderLayout(0, 0));
-
-		JLabel lblNewLabel_3 = new JLabel("Student Registration");
-		lblNewLabel_3.setHorizontalAlignment(JLabel.CENTER);
-		lblNewLabel_3.setFont(new Font("Montserrat", Font.BOLD, 24));
-		panel.add(lblNewLabel_3, BorderLayout.CENTER);
+		
+				JLabel lblNewLabel_3 = new JLabel("Student Registration");
+				lblNewLabel_3.setBackground(SystemColor.inactiveCaption);
+				panel.add(lblNewLabel_3, BorderLayout.CENTER);
+				lblNewLabel_3.setHorizontalAlignment(JLabel.CENTER);
+				lblNewLabel_3.setFont(new Font("Montserrat", Font.BOLD, 36));
 
 		panel_1 = new JPanel();
+		panel_1.setBackground(new Color(250, 240, 230));
 		panel_1.setBounds(30, 152, 415, 269);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Student Name");
-		lblNewLabel.setBounds(46, 46, 65, 13);
+		lblNewLabel.setFont(new Font("Montserrat", Font.BOLD, 12));
+		lblNewLabel.setBounds(47, 46, 105, 16);
 		panel_1.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Mobile");
-		lblNewLabel_1.setBounds(46, 83, 45, 13);
+		lblNewLabel_1.setFont(new Font("Montserrat", Font.BOLD, 12));
+		lblNewLabel_1.setBounds(47, 82, 45, 13);
 		panel_1.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Course");
-		lblNewLabel_2.setBounds(46, 123, 45, 13);
+		lblNewLabel_2.setFont(new Font("Montserrat", Font.BOLD, 12));
+		lblNewLabel_2.setBounds(47, 118, 45, 13);
 		panel_1.add(lblNewLabel_2);
 
 		txtName = new JTextField();
-		txtName.setBounds(162, 43, 153, 19);
+		txtName.setBounds(162, 46, 153, 19);
 		panel_1.add(txtName);
 		txtName.setColumns(10);
 
@@ -108,11 +118,13 @@ public class RegJFrame extends JFrame {
 		txtMobile.setColumns(10);
 
 		txtCourse = new JTextField();
-		txtCourse.setBounds(162, 120, 153, 19);
+		txtCourse.setBounds(162, 116, 153, 19);
 		panel_1.add(txtCourse);
 		txtCourse.setColumns(10);
 
 		JButton btnDelete = new JButton("Delete");
+		btnDelete.setBackground(new Color(221, 160, 221));
+		btnDelete.setFont(new Font("Montserrat", Font.PLAIN, 10));
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -154,6 +166,8 @@ public class RegJFrame extends JFrame {
 		panel_1.add(btnDelete);
 
 		JButton btnEdit = new JButton("Edit");
+		btnEdit.setBackground(new Color(221, 160, 221));
+		btnEdit.setFont(new Font("Montserrat", Font.PLAIN, 10));
 		btnEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DefaultTableModel Df = (DefaultTableModel) table.getModel();
@@ -196,6 +210,8 @@ public class RegJFrame extends JFrame {
 		panel_1.add(btnEdit);
 
 		JButton btnAdd = new JButton("Add");
+		btnAdd.setBackground(new Color(221, 160, 221));
+		btnAdd.setFont(new Font("Montserrat", Font.PLAIN, 10));
 		btnAdd.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -246,7 +262,7 @@ public class RegJFrame extends JFrame {
 		});
 
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.addMouseListener(new MouseAdapter() {
+		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				DefaultTableModel Df = (DefaultTableModel) table.getModel();
